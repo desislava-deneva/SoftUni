@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+
+<body>
+    <div id="wrapper">
+        <h1>JS DOM</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum, vero!</p>
+        <section id="superhero-section">
+            <h3 id="superhero-list-heading">Superheroes</h3>
+            <ul id="superhero-list">
+                <li class="good">Superman</li>
+                <li class="good">Captain America</li>
+                <li class="evil">Darkseid</li>
+                <li class="evil">Thanos</li>
+            </ul>
+
+            <button id="toggle-heroes-button" onclick="toggleSuperheroes();">Hide</button>
+
+            <br />
+
+            <label for="superhero-name">Add Superhero</label>
+            <input type="text" id="superhero-name" />
+
+            <button id="add-superhero" onclick="addSuperhero();">Add</button>
+        </section>
+    </div>
+
+    <script src="./script.js"></script>
+
+    <script>
+        // This will be executed in the same scope after script.js
+        console.log(headingElement.textContent)
+    </script>
+</body>
+
+</html>
