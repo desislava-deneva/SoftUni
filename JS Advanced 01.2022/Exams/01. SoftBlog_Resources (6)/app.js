@@ -1,5 +1,4 @@
 function solve() {
-
    let [section, sectionPost, sectionInputs, sectionArhive] = document.querySelectorAll('section');
 
    let [author, titile, category] = sectionInputs.querySelectorAll('body input');
@@ -8,7 +7,6 @@ function solve() {
 
    sectionPost.addEventListener('click', onClick);
    btnCreate.addEventListener('click', onCreate);
-
 
    function onCreate(ev) {
       ev.preventDefault();
@@ -24,11 +22,9 @@ function solve() {
 
       createElement('p', `${content.value}`, '', article);
 
-
       let div = createElement('div', '', 'buttons', article)
       createElement('button', 'Delete', 'btn delete', div);
       createElement('button', 'Archive', 'btn archive', div);
-
 
       author.value = '';
       titile.value = '';
@@ -36,14 +32,11 @@ function solve() {
       content.value = '';
    }
 
-
    function onClick(ev) {
       ev.preventDefault();
-
       let currEvent = ev.target.textContent;
 
       if (currEvent == 'Archive') {
-
          let olElement = sectionArhive.querySelector('ol');
 
          let articleEl = ev.target.parentElement.parentElement;
@@ -75,6 +68,5 @@ function solve() {
       }
       return el;
    }
-
 }
 

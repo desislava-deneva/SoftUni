@@ -1,7 +1,6 @@
 window.addEventListener('load', solve)
 
 function solve() {
-
     let genre = document.getElementById('genre');
     let name = document.getElementById('name');
     let author = document.getElementById('author');
@@ -97,8 +96,6 @@ function solve() {
             savedHit.appendChild(currTarget.parentNode);
             currTarget.parentNode.children[6].remove()
             currTarget.parentNode.children[5].remove()
-
         }
     }
-
 }

@@ -1,7 +1,6 @@
 window.addEventListener('load', solution);
 
 function solution() {
-
   let fname = document.getElementById('fname');
   let email = document.getElementById('email');
   let phone = document.getElementById('phone');
@@ -13,7 +12,6 @@ function solution() {
   let continueBTN = document.getElementById('continueBTN');
 
   let obj = {};
-
   let prevDivInfo = document.getElementById('infoPreview');
 
   summitBTN.addEventListener('click', onSummit);
@@ -48,7 +46,6 @@ function solution() {
       phone.value = '';
       address.value = '';
       code.value = '';
-
     }
   }
 
@@ -69,13 +66,10 @@ function solution() {
   }
 
   function onClickContinie(ev) {
+
     let block = document.getElementById('block');
-   
     block.innerHTML = '';
-
     createElement('h3', 'Thank you for your reservation!', '', block);
-
-    
   }
 
   function createElement(type, content, attribute, appender) {
@@ -91,5 +85,4 @@ function solution() {
     }
     return el;
   }
-
 }

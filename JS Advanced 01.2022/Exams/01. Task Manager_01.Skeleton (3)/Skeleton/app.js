@@ -15,7 +15,6 @@ function solve() {
     openDiv.addEventListener('click', moveTask);
     inProgress.addEventListener('click', movefinishTask)
 
-
     function addTask(ev) {
         ev.preventDefault();
 
@@ -79,5 +78,4 @@ function solve() {
         }
         return el;
     }
-
 }
