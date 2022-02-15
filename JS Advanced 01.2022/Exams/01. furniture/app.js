@@ -1,5 +1,3 @@
-window.addEventListener('load', solve);
-
 function solve() {
     let model = document.getElementById('model');
     let year = document.getElementById('year');
@@ -7,7 +5,6 @@ function solve() {
     let price = document.getElementById('price');
 
     let btnAdd = document.getElementById('add');
-
     let tbody = document.getElementById('furniture-list');
 
     btnAdd.addEventListener('click', addFurniture)
@@ -72,23 +69,19 @@ function solve() {
         let eventTarget = ev.target;
 
         if (eventTarget.textContent == 'More Info') {
-            let trEl = eventTarget.parentElement.parentElement;
-            trEl.nextSibling.style.display = 'contents';
-            
+            let tbodyEl = eventTarget.parentElement.parentElement.parentElement;
+            tbodyEl.lastChild.style.display = 'contents';
             eventTarget.textContent = 'Less Info'
         } else if (eventTarget.textContent == 'Less Info') {
-            let trEl = eventTarget.parentElement.parentElement;
-            trEl.nextSibling.style.display = '';
-            eventTarget.textContent = 'More Info';
+            let tbodyEl = eventTarget.parentElement.parentElement.parentElement;
+            tbodyEl.lastChild.style.display = '';
+            eventTarget.textContent = 'More Info'
         } else {
             let tdTotalPrice = document.querySelector('.total-price');
 
             let cuuSum = Number(tdTotalPrice.textContent);
-
             let currPrice = (eventTarget.parentElement.parentElement.children[1]);
-
             let sumChear = Number(currPrice.textContent);
-
             tdTotalPrice.textContent = Number(sumChear + cuuSum).toFixed(2);
 
             eventTarget.parentElement.parentElement.remove()
