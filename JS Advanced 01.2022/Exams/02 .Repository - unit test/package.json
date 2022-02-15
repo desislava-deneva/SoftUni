@@ -1,0 +1,19 @@
+{
+  "name": "02-christmas-movies",
+  "version": "1.0.0",
+  "description": "",
+  "main": "chrismas-movie.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^4.3.6",
+    "mocha": "^9.2.0"
+  }
+}
