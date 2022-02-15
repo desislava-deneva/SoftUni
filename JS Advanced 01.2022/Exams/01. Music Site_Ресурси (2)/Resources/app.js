@@ -97,8 +97,6 @@ function solve() {
             savedHit.appendChild(currTarget.parentNode);
             currTarget.parentNode.children[6].remove()
             currTarget.parentNode.children[5].remove()
-
         }
     }
-
 }
