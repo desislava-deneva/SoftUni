@@ -7,6 +7,7 @@ class Restaurant{
     }
 
     loadProducts(products){
+
         for (let product of products) {
             let [name, quantity, price] = product.split(' ');
             quantity = Number(quantity)
@@ -18,6 +19,7 @@ class Restaurant{
                     this.budgetMoney -= price;
                 }
                 else{
+                    
                     this.stockProducts[name] += quantity;
                     this.budgetMoney -= price;
                 }
