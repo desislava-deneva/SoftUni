@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>Click me</button>
+    <script>
+    document.querySelector('button').addEventListener('click', makeRequest);
+
+    async function makeRequest() {
+    try {
+
+        // await response to finish and then return request
+        const response = await fetch('https://swapi.dev/api/people/1/');
+        if (response.ok == false) {
+            throw new Error(`${response.status} ${response.statusText}`)
+        }
+        const data = await response.text();
+        let dataJson = JSON.parse(data);
+        let body = document.querySelector('body');
+        let ul = document.createElement('ul');
+        body.appendChild(ul);
+
+        for (const line of Object.entries(dataJson)) {
+        let li = document.createElement('li');
+            li.textContent = (`${line[0]}: ${line[1]}`) + '\n';
+            ul.appendChild(li);
+        }
+    } catch(error) {
+
+        console.log(`Error ${error}`)
+    }
+}
+
+    </script>
+</body>
+</html>
