@@ -1,0 +1,8 @@
+
+function solve() {
+   return  'yes'
+    
+}
+
+
+    
