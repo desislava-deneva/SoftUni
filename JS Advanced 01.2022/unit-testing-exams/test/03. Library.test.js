@@ -1,4 +1,4 @@
-describe("Libery ", function () {
+describe("Libery ",  ()=> {
 
     describe("Test calcPriceOfBook …", function () {
         it('test calcPriceOfBook with corect input', () => {
