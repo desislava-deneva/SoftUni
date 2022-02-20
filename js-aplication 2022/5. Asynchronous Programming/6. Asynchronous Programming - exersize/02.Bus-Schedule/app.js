@@ -25,7 +25,6 @@ function solve() {
         spanEl.textContent = `Arriving at: ${stop.name}`;
         departBtn.disabled = false;
         arriveBtn.disabled = true;
-        
     }
 
     return {
