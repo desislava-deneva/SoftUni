@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       label{
+        display:block;
+       }
+    </style>
+</head>
+<body>
+    <h2>Regester:</h2>
+    <form id="resgister-form">
+        <label>Email:<input type="text" name="email" /></label>
+        <label>Password:<input type="password" name="password" /></label>
+        <label>Repass:<input type="password" name="repass" /></label>
+        <input type="submit" value="Register"/>
+      </form>
+      <h2>Login:</h2>
+    <form id="login-form">
+        <label>Email:<input type="text" name="email" /></label>
+        <label>Password:<input type="password" name="password" /></label>
+        <input type="submit" value="Login"/>
+      </form>
+      <script>
+
+          let resgisterForm = document.getElementById('resgister-form');
+          resgisterForm.addEventListener('submit', onRegister);
+
+          let loginForm = document.getElementById('login-form');
+          loginForm.addEventListener('submit', onLogin );
+
+        async  function onRegister(ev) {
+              ev.preventDefault();
+
+              let url = 'http://localhost:3030/users/register';
+
+              let data = new FormData(resgisterForm);
+              let email = data.get('email');
+              let password= data.get('password');
+              let repass = data.get('repass');
+
+              try {
+                const response = await fetch(url,{
+                  method:'post',
+                  headers: {
+                      'Content-Type': 'application/json'
+                  },
+                  body: JSON.stringify({email,password})
+              });
+
+              if (response.status!= 200) {
+                  let error = await response.json();
+                  throw new Error(`Error: ${error.message}`)
+              }
+                const result = await response.json();
+
+                let token = result.accessToken;
+                sessionStorage.setItem('token', token);
+
+                resgisterForm.reset();
+
+                location = '/demoRemoteData.html';
+              } catch (error) {
+                  alert(error)
+              }
+          }
+
+          async  function onLogin(ev) {
+              ev.preventDefault();
+
+              let url = 'http://localhost:3030/users/login';
+
+              let data = new FormData(loginForm);
+              let email = data.get('email');
+              let password= data.get('password');
+
+              try {
+                const response = await fetch(url,{
+                  method:'post',
+                  headers: {
+                      'Content-Type': 'application/json'
+                  },
+                  body: JSON.stringify({email,password})
+              });
+
+             const result = await response.json();
+
+             let token = result.accessToken;
+             sessionStorage.setItem('token', token);
+
+             loginForm.reset();
+
+             location = '/demoRemoteData.html';
+              
+              } catch (error) {
+                  alert(error.message);
+              }
+          }
+      </script>
+</body>
+</html>
